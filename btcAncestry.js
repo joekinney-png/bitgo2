@@ -1,4 +1,5 @@
 const http = require("http");
+const https = require("https");
 // const fetch = require("node-fetch");
 // const axios = require("axios");
 
@@ -21,3 +22,21 @@ const server = http.createServer((req, res) => {});
 server.listen(PORT, console.log(`Listening on PORT ${PORT}`));
 
 module.exports = server;
+
+// https
+//   .get("endpoint", (res) => {
+//     let data = "";
+
+//     // chunk of data has been received
+//     res.on("data", (chunk) => {
+//       data += chunk;
+//     });
+
+//     // the entire response has been received
+//     res.on("end", () => {
+//       console.log(JSON.parse(data).exampleKey);
+//     });
+//   })
+//   .on("error", (err) => {
+//     console.log("Error: " + err.message);
+//   });
