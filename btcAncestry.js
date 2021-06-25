@@ -1,16 +1,26 @@
 const http = require("http");
-const https = require("https");
-// const fetch = require("node-fetch");
-// const axios = require("axios");
 
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {});
 
+server.listen(PORT, console.log(`Listening on PORT ${PORT}`));
+
+module.exports = server;
+
+// const axios = require("axios");
+// const https = require("https");
+// const fetch = require("node-fetch");
+
+// note that axios automatically parses the JSON
+// in addition can make concurrent requests by passing an array of endpoints to axios.all();
+// can use with Promise.all
+// axios docs: https://github.com/axios/axios
+
 // async function exampleFunction(parameter) {
 //   try {
-//     const firstResObj = await axios.get();
-//     const secondResObj = await axios.get();
+//     const firstResObj = await axios.get().then().catch();
+//     const secondResObj = await axios.get().then().catch();
 //     return secondResObj.data;
 //   } catch {
 //     console.log("Error in query to endpoint");
@@ -18,10 +28,6 @@ const server = http.createServer((req, res) => {});
 // }
 
 // exampleFunction(argument);
-
-server.listen(PORT, console.log(`Listening on PORT ${PORT}`));
-
-module.exports = server;
 
 // https
 //   .get("endpoint", (res) => {
@@ -40,3 +46,13 @@ module.exports = server;
 //   .on("error", (err) => {
 //     console.log("Error: " + err.message);
 //   });
+
+// (async () => {
+//   try {
+//     const response = await fetch("endpoint");
+//     const json = await response.json();
+//     console.log(json);
+//   } catch (err) {
+//     console.log(err.response.body);
+//   }
+// })();
